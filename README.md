@@ -2,9 +2,6 @@
 
 Personal portfolio site for Steven Wimberly — ECE student at UT Austin.
 
-**Live site:** [stevenwimberly.dev](https://stevenwimberly.dev)
-
----
 
 ## About
 
