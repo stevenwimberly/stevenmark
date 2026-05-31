@@ -88,5 +88,5 @@ Each project card lives in `index.html` inside `<section id="projects">`. To add
 
 ## Related
 
-- [GitHub Profile](https://github.com/stevenmark2)
+- [GitHub Profile](https://github.com/stevenwimberly)
 - [LinkedIn](https://linkedin.com/in/steven-wimberly-38854a222)
