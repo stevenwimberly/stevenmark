@@ -51,12 +51,6 @@ stevenmark2.github.io/
 
 ---
 
-## Stack
-
-Pure HTML, CSS, and JavaScript — no build tools, no frameworks, no dependencies. Fonts loaded from Google Fonts. Hosted on GitHub Pages.
-
----
-
 ## Running Locally
 
 ```bash
@@ -69,7 +63,7 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-Opening `index.html` directly in a browser also works — no server required.
+Opening `index.html` directly in a browser also works.
 
 ---
 
