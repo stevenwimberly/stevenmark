@@ -32,14 +32,11 @@
     a { color: inherit; text-decoration: none; }
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 1; }
 
-    /* ── PAGE ENTRANCE CURTAIN ── */
     #curtain { position: fixed; inset: 0; z-index: 9999; background: var(--bg); animation: curtainFade 0.5s ease 0.05s forwards; pointer-events: none; }
     @keyframes curtainFade { 0%{opacity:1} 100%{opacity:0} }
 
-    /* ── SCROLL PROGRESS BAR ── */
     #progress { position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 2px; background: var(--orange); width: 0%; transition: width 0.08s linear; }
 
-    /* ── NAV ── */
     nav {
       position: fixed; top: 2px; left: 0; right: 0; z-index: 100;
       padding: 1.1rem 2.5rem; display: flex; justify-content: space-between; align-items: center;
@@ -58,38 +55,20 @@
     .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); animation: pulse-dot 2s ease-in-out infinite; }
     @keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.6} }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center;
-      padding: 100px 0 60px; position: relative; overflow: hidden;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    /* PCB watermark */
-    .hero-pcb-bg {
-      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-      width: 580px; opacity: 0.055; pointer-events: none; z-index: 0;
-      animation: pcbFloat 8s ease-in-out infinite;
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 0 60px; position: relative; overflow: hidden; border-bottom: 0.5px solid var(--border); }
+    .hero-pcb-bg { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 580px; opacity: 0.055; pointer-events: none; z-index: 0; animation: pcbFloat 8s ease-in-out infinite; }
     @keyframes pcbFloat { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-52%) translateX(-6px)} }
-
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; position: relative; z-index: 1; width: 100%; }
-
-    /* LEFT: name + buttons */
-    .hero-left {}
     .hero-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 1.8rem; opacity: 0; animation: slideRight 0.8s cubic-bezier(0.22,1,0.36,1) 0.2s forwards; }
     .hero-eyebrow::before { content: ''; width: 0; height: 1px; background: var(--orange); animation: expandLine 0.6s ease 0.5s forwards; }
     @keyframes expandLine { to { width: 28px; } }
     @keyframes slideRight { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
-
     .hero-name-wrap { opacity: 0; animation: slideUp 1s cubic-bezier(0.22,1,0.36,1) 0.35s forwards; margin-bottom: 1.6rem; }
     @keyframes slideUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-
     .hero-photo-name { display: flex; align-items: center; gap: 18px; }
     .hero-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2.5px solid var(--orange); flex-shrink: 0; transition: transform 0.4s ease, box-shadow 0.4s ease; align-self: center; }
     .hero-photo:hover { transform: scale(1.05); box-shadow: 0 8px 32px rgba(191,87,0,0.22); }
     .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px,5.5vw,72px); font-weight: 300; line-height: 0.93; letter-spacing: -2px; }
-
     .hero-sub { font-size: 12.5px; color: var(--text-2); max-width: 400px; line-height: 1.85; margin-bottom: 2rem; opacity: 0; animation: slideUp 1s cubic-bezier(0.22,1,0.36,1) 0.5s forwards; }
     .hero-btns { display: flex; gap: 7px; flex-wrap: nowrap; opacity: 0; animation: slideUp 1s cubic-bezier(0.22,1,0.36,1) 0.65s forwards; }
     .btn { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; padding: 10px 14px; border-radius: var(--r); cursor: pointer; transition: all 0.3s cubic-bezier(0.22,1,0.36,1); text-transform: uppercase; display: inline-block; position: relative; overflow: hidden; white-space: nowrap; }
@@ -98,7 +77,6 @@
     .btn-solid:hover::before { transform: translateY(0); }
     .btn-solid span { position: relative; z-index: 1; }
 
-    /* RIGHT: about content */
     .hero-right { opacity: 0; animation: slideUp 1s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; padding-top: 0.5rem; }
     .about-bio { margin-bottom: 2rem; }
     .about-bio p { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-2); line-height: 1.85; margin-bottom: 0.9rem; font-weight: 400; }
@@ -109,27 +87,19 @@
     .about-block-title::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
     .exp-item { margin-bottom: 1.3rem; padding-bottom: 1.3rem; border-bottom: 0.5px solid var(--border); cursor: default; }
     .exp-item:last-child { margin: 0; padding-bottom: 0; border-bottom: none; }
-    .exp-t { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--text); margin-bottom: 2px; letter-spacing: 0; }
+    .exp-t { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 400; color: var(--text); margin-bottom: 2px; }
     .exp-o { font-size: 10px; color: var(--orange); margin-bottom: 4px; letter-spacing: 1px; text-transform: uppercase; }
     .exp-d { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--text-3); line-height: 1.6; }
     .tag-wrap { display: flex; flex-wrap: wrap; gap: 0; }
-    .tag {
-      font-size: 10px; padding: 5px 12px 5px 0; border: none; border-radius: 0;
-      color: var(--text-3); background: transparent;
-      letter-spacing: 1px; text-transform: uppercase;
-      transition: color 0.2s; cursor: default;
-      border-right: 1px solid var(--border-2); margin-right: 12px; margin-bottom: 6px;
-    }
+    .tag { font-size: 10px; padding: 5px 12px 5px 0; border: none; border-radius: 0; color: var(--text-3); background: transparent; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; cursor: default; border-right: 1px solid var(--border-2); margin-right: 12px; margin-bottom: 6px; }
     .tag:last-child { border-right: none; }
-    .tag:hover { color: var(--orange); transform: none; }
+    .tag:hover { color: var(--orange); }
 
-    /* ── WAVEFORM ── */
     .waveform-div { width: 100%; height: 55px; overflow: hidden; opacity: 0.18; }
     .waveform-div svg { width: 100%; height: 100%; }
     .wave-path { stroke-dasharray: 3000; stroke-dashoffset: 3000; transition: stroke-dashoffset 3s ease; }
     .wave-path.animate { stroke-dashoffset: 0; }
 
-    /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal.hidden  { opacity: 0; transform: translateY(36px); }
@@ -146,42 +116,29 @@
     .delay-2 { transition-delay: 0.16s; }
     .delay-3 { transition-delay: 0.24s; }
     .delay-4 { transition-delay: 0.32s; }
-    .delay-5 { transition-delay: 0.40s; }
 
-    /* ── SECTION HEAD ── */
     .sec-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; padding-top: 5rem; }
     .sec-num { font-size: 10px; color: var(--text-3); letter-spacing: 1px; transition: color 0.4s ease; }
     .sec-num.lit { color: var(--orange); }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 300; letter-spacing: -1px; }
 
-    /* ── RESEARCH ── */
     .research-section { padding-bottom: 5rem; border-bottom: 0.5px solid var(--border); }
     .research-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .research-writeup p { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text-2); line-height: 1.9; margin-bottom: 1rem; }
     .research-writeup p:last-child { margin-bottom: 0; }
     .research-aside { display: flex; flex-direction: column; gap: 1.5rem; }
-
     .research-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
     .rstat { background: #fff; border: 0.5px solid var(--border); border-radius: var(--r); padding: 14px 16px; transition: border-color 0.25s, transform 0.25s; }
     .rstat:hover { border-color: rgba(191,87,0,0.3); transform: translateY(-2px); }
     .rstat-n { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--orange); line-height: 1; margin-bottom: 4px; opacity: 0; filter: blur(6px); transition: opacity 0.6s ease, filter 0.6s ease; }
     .rstat-n.revealed { opacity: 1; filter: blur(0); }
     .rstat-l { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-3); }
-
     .research-tech { background: #fff; border: 0.5px solid var(--border); border-radius: var(--r); padding: 16px 18px; }
     .research-tech-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-3); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 0.5px solid var(--border); }
     .tech-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tech-tag {
-      font-size: 10px; padding: 4px 10px;
-      border-left: 2px solid var(--orange);
-      border-radius: 0;
-      color: var(--text-2); background: transparent;
-      letter-spacing: 0.5px;
-      transition: color 0.2s, background 0.2s;
-    }
+    .tech-tag { font-size: 10px; padding: 4px 10px; border-left: 2px solid var(--orange); border-radius: 0; color: var(--text-2); background: transparent; letter-spacing: 0.5px; transition: color 0.2s, background 0.2s; }
     .tech-tag:hover { color: var(--orange); background: var(--orange-l); }
 
-    /* Poster */
     .poster-card { background: #fff; border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden; transition: box-shadow 0.35s, border-color 0.35s, transform 0.35s; display: block; }
     .poster-card:hover { box-shadow: 0 10px 40px rgba(191,87,0,0.12); border-color: rgba(191,87,0,0.35); transform: translateY(-3px); }
     .poster-img-wrap { height: 220px; overflow: hidden; border-bottom: 0.5px solid var(--border); position: relative; }
@@ -194,25 +151,28 @@
     .poster-sub { font-size: 10px; color: var(--text-3); }
     .poster-sub span { color: var(--orange); }
 
-    /* ── PROJECTS ── */
     .projects-wrap { padding-bottom: 5rem; border-bottom: 0.5px solid var(--border); }
     .proj-card { background: #fff; border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 16px; transition: box-shadow 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.4s, transform 0.4s cubic-bezier(0.22,1,0.36,1); }
     .proj-card:hover { box-shadow: 0 12px 50px rgba(191,87,0,0.09); border-color: rgba(191,87,0,0.28); transform: translateY(-3px); }
     .proj-top { display: grid; grid-template-columns: 340px 1fr; min-height: 260px; }
 
-    /* ── PEEK CAROUSEL ── */
     .carousel { position: relative; background: var(--bg-2); border-right: 0.5px solid var(--border); overflow: hidden; }
     .carousel-track { display: flex; height: 100%; min-height: 260px; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1); }
     .carousel-slide { min-width: calc(100% - 44px); height: 100%; position: relative; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
     .carousel-slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
-    /* Placeholder */
     .c-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; min-height: 260px; position: relative; }
     .c-placeholder::before { content: ''; position: absolute; inset: 14px; border: 1px dashed var(--border-2); border-radius: 4px; pointer-events: none; }
     .c-ico { width: 28px; height: 28px; color: var(--text-3); opacity: 0.35; }
     .c-lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-3); font-family: 'IBM Plex Mono', monospace; }
 
-    /* Peek hint strip */
+    /* Private repo placeholder - slightly different style */
+    .c-private { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; width: 100%; height: 100%; min-height: 260px; position: relative; background: var(--bg-2); }
+    .c-private::before { content: ''; position: absolute; inset: 14px; border: 1px dashed rgba(191,87,0,0.2); border-radius: 4px; pointer-events: none; }
+    .c-lock { font-size: 22px; opacity: 0.25; }
+    .c-private-lbl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); opacity: 0.6; font-family: 'IBM Plex Mono', monospace; }
+    .c-private-sub { font-size: 9px; color: var(--text-3); letter-spacing: 1px; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; }
+
     .carousel-peek-hint { position: absolute; right: 0; top: 0; bottom: 0; width: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; background: var(--bg-3); border-left: 0.5px solid var(--border); pointer-events: none; z-index: 5; transition: opacity 0.3s; }
     .carousel.at-end .carousel-peek-hint { opacity: 0; }
     .peek-arrow { font-size: 14px; color: var(--text-3); opacity: 0.55; }
@@ -220,11 +180,8 @@
     .peek-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-3); opacity: 0.35; transition: background 0.2s, opacity 0.2s; }
     .peek-dot.active { background: var(--orange); opacity: 0.9; }
 
-    /* Slide label */
     .slide-label { position: absolute; bottom: 9px; left: 50%; transform: translateX(-50%); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; background: var(--bg-3); color: var(--text-3); padding: 3px 10px; border-radius: 20px; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; pointer-events: none; z-index: 4; }
-    .slide-label.on-img { background: rgba(0,0,0,0.45); color: rgba(255,255,255,0.9); backdrop-filter: blur(4px); }
 
-    /* Nav arrows */
     .c-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.92); border: 0.5px solid var(--border-2); border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; font-size: 12px; color: var(--text-2); opacity: 0; transition: opacity 0.2s, transform 0.2s, background 0.2s; }
     .carousel:hover .c-btn { opacity: 1; }
     .c-btn:hover { background: #fff; transform: translateY(-50%) scale(1.1); }
@@ -232,12 +189,10 @@
     .c-btn.next { right: 52px; }
     .c-btn:disabled { opacity: 0 !important; pointer-events: none; }
 
-    /* Bottom dots */
     .c-dots { position: absolute; bottom: 9px; left: 14px; display: flex; gap: 5px; z-index: 10; }
     .c-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border-2); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
     .c-dot.active { background: var(--orange); transform: scale(1.3); }
 
-    /* Project body */
     .proj-body { padding: 24px 28px; display: flex; flex-direction: column; justify-content: space-between; }
     .proj-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
     .proj-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; line-height: 1; color: var(--bg-3); user-select: none; flex-shrink: 0; transition: color 0.3s; }
@@ -245,20 +200,24 @@
     .proj-meta { flex: 1; }
     .proj-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; font-style: italic; color: var(--text-3); letter-spacing: -0.5px; margin-bottom: 8px; transition: color 0.3s; }
     .proj-card:hover .proj-name { color: var(--text-2); }
-    .proj-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .proj-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
     .pb { font-size: 9px; padding: 3px 9px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; transition: transform 0.2s; }
     .proj-card:hover .pb { transform: translateY(-1px); }
-    .pb-pwr { background: var(--orange-l); color: var(--orange-d); border-left: 2px solid var(--orange); }
-    .pb-mcu { background: #EEF4FF; color: #1D4ED8; border-left: 2px solid #60A5FA; }
-    .pb-sen { background: #F0FDF4; color: #15803D; border-left: 2px solid #4ADE80; }
-    .pb-rf  { background: var(--bg-2); color: var(--text-2); border-left: 2px solid var(--text-3); }
+    .pb-pwr  { background: var(--orange-l); color: var(--orange-d); border-left: 2px solid var(--orange); }
+    .pb-mcu  { background: #EEF4FF; color: #1D4ED8; border-left: 2px solid #60A5FA; }
+    .pb-sen  { background: #F0FDF4; color: #15803D; border-left: 2px solid #4ADE80; }
+    .pb-rf   { background: var(--bg-2); color: var(--text-2); border-left: 2px solid var(--text-3); }
+    .pb-priv { background: var(--bg-2); color: var(--text-3); border-left: 2px solid var(--text-3); }
     .proj-status { display: flex; align-items: center; gap: 6px; }
     .sdot { width: 6px; height: 6px; border-radius: 50%; }
     .s-done { background: #22C55E; }
     .s-wip  { background: var(--orange); animation: pulse-dot 2s ease-in-out infinite; }
     .s-plan { background: var(--text-3); }
-    .s-txt { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-3); }
+    .s-txt  { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-3); }
     .s-meta { margin-left: auto; font-size: 10px; color: var(--text-3); }
+    .proj-link { font-size: 10px; color: var(--orange); letter-spacing: 1px; text-transform: uppercase; transition: opacity 0.2s; }
+    .proj-link:hover { opacity: 0.7; }
+
     .proj-whr { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 0.5px solid var(--border); }
     .whr { padding: 16px 20px; border-right: 0.5px solid var(--border); transition: background 0.25s; }
     .whr:last-child { border-right: none; }
@@ -270,7 +229,7 @@
 
     .skills-wrap { padding-bottom: 5rem; border-bottom: 0.5px solid var(--border); }
     .skills-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-    .skill-card { background: #fff; border: 0.5px solid var(--border); border-top: 2px solid var(--orange); border-radius: 0 0 var(--r) var(--r); padding: 20px; transition: border-color 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s; }
+    .skill-card { background: #fff; border: 0.5px solid var(--border); border-top: 2px solid var(--orange); border-radius: 0 0 var(--r) var(--r); padding: 20px; transition: box-shadow 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1); }
     .skill-card:hover { box-shadow: 0 8px 28px rgba(191,87,0,0.07); transform: translateY(-4px); }
     .skill-cat { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
     .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
@@ -278,7 +237,6 @@
     .skill-list li:last-child { border-bottom: none; }
     .skill-list li:hover { color: var(--orange); padding-left: 6px; }
 
-    /* ── FOOTER ── */
     footer { padding: 5rem 0 3rem; }
     .foot-top { padding-bottom: 3rem; border-bottom: 0.5px solid var(--border); margin-bottom: 2rem; }
     .foot-display { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 90px); font-weight: 300; letter-spacing: -2px; line-height: 1; color: var(--text); margin-bottom: 0.6rem; }
@@ -298,7 +256,6 @@
     .foot-links a:hover { color: var(--orange); transform: translateY(-2px); }
     .foot-copy { font-size: 10px; color: var(--text-3); }
 
-    /* PCB SVG animation classes */
     .tr { stroke: #BF5700; fill: none; stroke-linecap: round; stroke-linejoin: round; }
     .tr-main { stroke-width: 2.5; stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawTrace 1.2s cubic-bezier(0.4,0,0.2,1) forwards; }
     .tr-sig  { stroke-width: 1.5; stroke-dasharray: 400; stroke-dashoffset: 400; animation: drawTrace 1s cubic-bezier(0.4,0,0.2,1) forwards; }
@@ -310,12 +267,11 @@
     .comp { opacity: 0; animation: fadeComp 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
     @keyframes fadeComp { to { opacity: 1; } }
 
-    /* ── SCROLL OFFSET for fixed nav ── */
     section[id] { scroll-margin-top: 80px; }
 
-    /* ── AVAILABILITY BADGE ── */
     .avail-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--orange); background: var(--orange-l); border: 0.5px solid rgba(191,87,0,0.25); border-radius: 20px; padding: 4px 12px; margin-bottom: 1.4rem; opacity: 0; animation: slideUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.8s forwards; }
     .avail-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-pcb-bg { display: none; }
@@ -344,7 +300,6 @@
 <div id="curtain"></div>
 <div id="progress"></div>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">SW<em>.</em></div>
   <ul class="nav-links">
@@ -357,77 +312,41 @@
   <div class="nav-dot"></div>
 </nav>
 
-<!-- HERO: name left + about right, PCB watermark -->
 <section class="hero" id="hero">
   <div class="wrap">
-
-    <!-- PCB watermark -->
     <svg class="hero-pcb-bg" viewBox="0 0 540 460" xmlns="http://www.w3.org/2000/svg" fill="none">
       <rect x="8" y="8" width="524" height="444" rx="14" stroke="#BF5700" stroke-width="2" fill="#FFF9F5"/>
       <rect x="20" y="20" width="500" height="420" rx="10" stroke="#BF5700" stroke-width="0.5" stroke-dasharray="6 4" fill="none" class="comp" style="animation-delay:2.5s"/>
-      <circle cx="38" cy="38" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.6s"/>
-      <circle cx="38" cy="38" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.6s"/>
-      <circle cx="502" cy="38" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.6s"/>
-      <circle cx="502" cy="38" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.6s"/>
-      <circle cx="38" cy="422" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.7s"/>
-      <circle cx="38" cy="422" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.7s"/>
-      <circle cx="502" cy="422" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.7s"/>
-      <circle cx="502" cy="422" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.7s"/>
-      <path class="tr tr-pwr" d="M60 65 H480" style="animation-delay:0.1s"/>
-      <path class="tr tr-pwr" d="M60 395 H480" style="animation-delay:0.15s"/>
-      <path class="tr tr-sig" d="M120 65 V110" style="animation-delay:0.4s"/>
-      <path class="tr tr-sig" d="M380 65 V110" style="animation-delay:0.55s"/>
-      <path class="tr tr-sig" d="M140 395 V360" style="animation-delay:0.4s"/>
-      <path class="tr tr-sig" d="M400 395 V360" style="animation-delay:0.5s"/>
+      <circle cx="38" cy="38" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.6s"/><circle cx="38" cy="38" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.6s"/>
+      <circle cx="502" cy="38" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.6s"/><circle cx="502" cy="38" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.6s"/>
+      <circle cx="38" cy="422" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.7s"/><circle cx="38" cy="422" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.7s"/>
+      <circle cx="502" cy="422" r="9" stroke="#BF5700" stroke-width="1.5" fill="white" class="comp" style="animation-delay:2.7s"/><circle cx="502" cy="422" r="3.5" fill="#BF5700" class="comp" style="animation-delay:2.7s"/>
+      <path class="tr tr-pwr" d="M60 65 H480" style="animation-delay:0.1s"/><path class="tr tr-pwr" d="M60 395 H480" style="animation-delay:0.15s"/>
+      <path class="tr tr-sig" d="M120 65 V110" style="animation-delay:0.4s"/><path class="tr tr-sig" d="M380 65 V110" style="animation-delay:0.55s"/>
+      <path class="tr tr-sig" d="M140 395 V360" style="animation-delay:0.4s"/><path class="tr tr-sig" d="M400 395 V360" style="animation-delay:0.5s"/>
       <rect x="190" y="155" width="160" height="130" rx="4" stroke="#BF5700" stroke-width="2" fill="#FFF2E8" class="comp" style="animation-delay:1.0s"/>
       <text x="270" y="212" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#BF5700" class="comp" style="animation-delay:1.1s">STM32F7</text>
       <text x="270" y="226" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#BF5700" class="comp" style="animation-delay:1.1s">U1</text>
       <circle cx="197" cy="163" r="3" fill="#BF5700" class="comp" style="animation-delay:1.0s"/>
-      <rect x="206" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="224" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="242" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="260" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="278" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="296" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="314" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="332" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
-      <rect x="206" y="285" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.25s"/>
-      <rect x="224" y="285" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.25s"/>
-      <rect x="177" y="168" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
-      <rect x="177" y="204" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
-      <rect x="177" y="240" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
-      <rect x="350" y="168" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
-      <rect x="350" y="204" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
-      <rect x="350" y="240" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
+      <rect x="206" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/><rect x="224" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/><rect x="242" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/><rect x="260" y="142" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.2s"/>
+      <rect x="206" y="285" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.25s"/><rect x="224" y="285" width="10" height="13" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.25s"/>
+      <rect x="177" y="168" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/><rect x="177" y="204" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/><rect x="177" y="240" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
+      <rect x="350" y="168" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/><rect x="350" y="204" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/><rect x="350" y="240" width="13" height="10" rx="1" fill="#BF5700" class="comp" opacity="0.7" style="animation-delay:1.3s"/>
       <rect x="420" y="100" width="65" height="65" rx="3" stroke="#BF5700" stroke-width="1.5" fill="#FFF2E8" class="comp" style="animation-delay:1.4s"/>
       <text x="452" y="131" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#BF5700" class="comp" style="animation-delay:1.5s">IMU</text>
-      <rect x="408" y="110" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/>
-      <rect x="408" y="124" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/>
-      <rect x="485" y="110" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/>
-      <rect x="485" y="124" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/>
+      <rect x="408" y="110" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/><rect x="485" y="110" width="12" height="8" rx="1" fill="#BF5700" opacity="0.6" class="comp" style="animation-delay:1.5s"/>
       <rect x="50" y="340" width="80" height="36" rx="4" stroke="#BF5700" stroke-width="1.5" fill="#FFF2E8" class="comp" style="animation-delay:1.6s"/>
       <text x="90" y="363" text-anchor="middle" font-family="IBM Plex Mono" font-size="7" fill="#BF5700" class="comp" style="animation-delay:1.7s">USB-C J1</text>
       <path class="tr tr-main" d="M130,352 H160 V228 H177" style="animation-delay:0.6s"/>
       <path class="tr tr-sig" d="M363,177 H395 V115 H408" style="animation-delay:1.0s"/>
-      <path class="tr tr-sig" d="M363,194 H400 V127 H408" style="animation-delay:1.1s"/>
-      <circle cx="160" cy="228" r="6" class="via-ring" style="animation-delay:0.7s"/>
-      <circle cx="160" cy="228" r="2.5" class="via-fill" style="animation-delay:0.7s"/>
-      <circle cx="395" cy="115" r="5" class="via-ring" style="animation-delay:1.05s"/>
-      <circle cx="395" cy="115" r="2" class="via-fill" style="animation-delay:1.05s"/>
+      <circle cx="160" cy="228" r="6" class="via-ring" style="animation-delay:0.7s"/><circle cx="160" cy="228" r="2.5" class="via-fill" style="animation-delay:0.7s"/>
+      <circle cx="395" cy="115" r="5" class="via-ring" style="animation-delay:1.05s"/><circle cx="395" cy="115" r="2" class="via-fill" style="animation-delay:1.05s"/>
       <text x="200" y="430" font-family="IBM Plex Mono" font-size="7" fill="#BF5700" class="comp" opacity="0.5" style="animation-delay:2.5s">STEVEN WIMBERLY · UT AUSTIN · REV 1.0</text>
-      <circle r="3" fill="#BF5700" opacity="0">
-        <animateMotion dur="3s" repeatCount="indefinite" begin="2s" path="M130,352 H160 V228 H177"/>
-        <animate attributeName="opacity" values="0;0;1;1;0" dur="3s" repeatCount="indefinite" begin="2s"/>
-      </circle>
-      <circle r="4" fill="#BF5700" opacity="0">
-        <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M60,65 H480"/>
-        <animate attributeName="opacity" values="0;0;0.6;0.6;0" dur="4s" repeatCount="indefinite" begin="1.5s"/>
-      </circle>
+      <circle r="3" fill="#BF5700" opacity="0"><animateMotion dur="3s" repeatCount="indefinite" begin="2s" path="M130,352 H160 V228 H177"/><animate attributeName="opacity" values="0;0;1;1;0" dur="3s" repeatCount="indefinite" begin="2s"/></circle>
+      <circle r="4" fill="#BF5700" opacity="0"><animateMotion dur="4s" repeatCount="indefinite" begin="1.5s" path="M60,65 H480"/><animate attributeName="opacity" values="0;0;0.6;0.6;0" dur="4s" repeatCount="indefinite" begin="1.5s"/></circle>
     </svg>
 
     <div class="hero-grid">
-
-      <!-- LEFT -->
       <div class="hero-left">
         <p class="hero-eyebrow">Electrical &amp; Computer Engineering · UT Austin</p>
         <div class="avail-badge"><span class="avail-dot"></span>Available Summer 2027</div>
@@ -446,8 +365,6 @@
           <a class="btn btn-solid" href="2025_Steven_Resume.pdf" target="_blank"><span>Resume</span></a>
         </div>
       </div>
-
-      <!-- RIGHT: about content -->
       <div class="hero-right">
         <div class="about-bio">
           <p>I'm an Electrical &amp; Computer Engineering student at UT Austin (graduating May 2029) focused on PCB design and power electronics. I build boards that solve real problems, fly on spacecraft, and drive motors on robots.</p>
@@ -481,20 +398,16 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- WAVEFORM -->
 <div class="waveform-div" id="waveform">
   <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-    <polyline class="wave-path" points="0,30 60,30 80,10 100,50 120,10 140,50 160,30 240,30 260,8 280,52 300,8 320,52 340,30 420,30 440,12 460,48 480,12 500,48 520,30 600,30 620,5 650,55 680,5 710,55 740,30 820,30 840,15 860,45 880,15 900,45 920,30 1000,30 1020,10 1040,50 1060,10 1080,50 1100,30 1200,30"
-      fill="none" stroke="#BF5700" stroke-width="1.5" stroke-linejoin="round"/>
+    <polyline class="wave-path" points="0,30 60,30 80,10 100,50 120,10 140,50 160,30 240,30 260,8 280,52 300,8 320,52 340,30 420,30 440,12 460,48 480,12 500,48 520,30 600,30 620,5 650,55 680,5 710,55 740,30 820,30 840,15 860,45 880,15 900,45 920,30 1000,30 1020,10 1040,50 1060,10 1080,50 1100,30 1200,30" fill="none" stroke="#BF5700" stroke-width="1.5" stroke-linejoin="round"/>
   </svg>
 </div>
 
-<!-- RESEARCH -->
 <section id="research">
   <div class="wrap">
     <div class="sec-head">
@@ -544,7 +457,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
     <div class="sec-head">
@@ -569,7 +481,7 @@
         </symbol>
       </svg>
 
-      <!-- PROJECT 01 -->
+      <!-- PROJECT 01: LED Strip Controller -->
       <div class="proj-card reveal delay-1">
         <div class="proj-top">
           <div class="carousel" id="car-1">
@@ -594,94 +506,120 @@
             <div class="carousel-peek-hint">
               <span class="peek-arrow">›</span>
               <div class="peek-dots">
-                <div class="peek-dot active"></div>
-                <div class="peek-dot"></div>
-                <div class="peek-dot"></div>
-                <div class="peek-dot"></div>
+                <div class="peek-dot active"></div><div class="peek-dot"></div><div class="peek-dot"></div><div class="peek-dot"></div>
               </div>
             </div>
             <button class="c-btn prev">&#8592;</button>
             <button class="c-btn next">&#8594;</button>
             <div class="c-dots">
-              <button class="c-dot active"></button>
-              <button class="c-dot"></button>
-              <button class="c-dot"></button>
-              <button class="c-dot"></button>
+              <button class="c-dot active"></button><button class="c-dot"></button><button class="c-dot"></button><button class="c-dot"></button>
             </div>
           </div>
           <div class="proj-body">
             <div class="proj-head">
               <div class="proj-num">01</div>
               <div class="proj-meta">
-                <div class="proj-name">[ Project Name ]</div>
-                <div class="proj-badges"><span class="pb pb-pwr">Power</span><span class="pb pb-mcu">MCU</span><span class="pb pb-sen">Sensors</span></div>
+                <div class="proj-name">LED Strip Controller</div>
+                <div class="proj-badges">
+                  <span class="pb pb-pwr">Power</span>
+                  <span class="pb pb-mcu">STM32G0</span>
+                  <span class="pb pb-mcu">USB-C</span>
+                </div>
               </div>
             </div>
-            <div class="proj-status"><div class="sdot s-done"></div><span class="s-txt">Complete</span><span class="s-meta">KiCad · JLCPCB · 2025</span></div>
+            <div class="proj-status">
+              <div class="sdot s-wip"></div>
+              <span class="s-txt">In Progress</span>
+              <span class="s-meta">KiCad · JLCPCB · 2025</span>
+            </div>
           </div>
         </div>
         <div class="proj-whr">
-          <div class="whr"><div class="whr-l">What</div><div class="whr-p">Describe what this project is and the problem it solves.</div></div>
-          <div class="whr"><div class="whr-l">How</div><div class="whr-p">Key technical decisions — ICs chosen, layout challenges, firmware approach.</div></div>
-          <div class="whr"><div class="whr-l">Results</div><div class="whr-p">Quantify outcomes — efficiency %, power draw, what worked, what you'd fix on rev 2.</div></div>
+          <div class="whr"><div class="whr-l">What</div><div class="whr-p">WS2812B addressable LED driver powered by USB-C. Controls up to 60 LEDs from a 5V supply with BLE wireless control from any phone or laptop.</div></div>
+          <div class="whr"><div class="whr-l">How</div><div class="whr-p">STM32G0 + TXS0101 level shifter for 3.3V→5V logic. DMA-driven PWM generates WS2812B timing with zero CPU overhead. FUSB302 handles USB-C PD negotiation.</div></div>
+          <div class="whr"><div class="whr-l">Results</div><div class="whr-p">Schematic complete, PCB routing in progress. Board being fabricated at JLCPCB — results and measured performance to follow.</div></div>
         </div>
       </div>
 
-      <!-- PROJECT 02 -->
+      <!-- PROJECT 02: EGSE Board -->
       <div class="proj-card reveal delay-2">
         <div class="proj-top">
           <div class="carousel" id="car-2">
             <div class="carousel-track">
               <div class="carousel-slide">
-                <div class="c-placeholder"><svg class="c-ico"><use href="#pcb-ico"/></svg><span class="c-lbl">Add Schematic</span></div>
-                <span class="slide-label">Schematic</span>
-              </div>
-              <div class="carousel-slide">
-                <div class="c-placeholder"><svg class="c-ico"><use href="#pcb-ico"/></svg><span class="c-lbl">Add PCB Layout</span></div>
-                <span class="slide-label">PCB Layout</span>
-              </div>
-              <div class="carousel-slide">
-                <div class="c-placeholder"><svg class="c-ico"><use href="#pcb-ico"/></svg><span class="c-lbl">Add 3D Model</span></div>
-                <span class="slide-label">3D Model</span>
-              </div>
-              <div class="carousel-slide">
-                <div class="c-placeholder"><svg class="c-ico"><use href="#pcb-ico"/></svg><span class="c-lbl">Add Photo</span></div>
-                <span class="slide-label">Photo</span>
+                <div class="c-private">
+                  <div class="c-lock">🔒</div>
+                  <span class="c-private-lbl">Private Repo</span>
+                  <span class="c-private-sub">Team IP — TSL</span>
+                </div>
               </div>
             </div>
-            <div class="carousel-peek-hint">
-              <span class="peek-arrow">›</span>
-              <div class="peek-dots">
-                <div class="peek-dot active"></div>
-                <div class="peek-dot"></div>
-                <div class="peek-dot"></div>
-                <div class="peek-dot"></div>
-              </div>
-            </div>
-            <button class="c-btn prev">&#8592;</button>
-            <button class="c-btn next">&#8594;</button>
-            <div class="c-dots">
-              <button class="c-dot active"></button>
-              <button class="c-dot"></button>
-              <button class="c-dot"></button>
-              <button class="c-dot"></button>
-            </div>
+            <div class="carousel-peek-hint" style="opacity:0; pointer-events:none;"></div>
           </div>
           <div class="proj-body">
             <div class="proj-head">
               <div class="proj-num">02</div>
               <div class="proj-meta">
-                <div class="proj-name">[ Project Name ]</div>
-                <div class="proj-badges"><span class="pb pb-pwr">Power</span><span class="pb pb-pwr">Battery</span></div>
+                <div class="proj-name">EGSE Board</div>
+                <div class="proj-badges">
+                  <span class="pb pb-mcu">MSPM0</span>
+                  <span class="pb pb-mcu">USB-C</span>
+                  <span class="pb pb-priv">Flight Hardware</span>
+                </div>
               </div>
             </div>
-            <div class="proj-status"><div class="sdot s-wip"></div><span class="s-txt">In Progress</span><span class="s-meta">KiCad · JLCPCB · 2025</span></div>
+            <div class="proj-status">
+              <div class="sdot s-done"></div>
+              <span class="s-txt">Complete</span>
+              <span class="s-meta">KiCad · Texas Spacecraft Lab</span>
+            </div>
           </div>
         </div>
         <div class="proj-whr">
-          <div class="whr"><div class="whr-l">What</div><div class="whr-p">Describe what this project is and the problem it solves.</div></div>
-          <div class="whr"><div class="whr-l">How</div><div class="whr-p">Key technical decisions — ICs chosen, layout challenges, firmware approach.</div></div>
-          <div class="whr"><div class="whr-l">Results</div><div class="whr-p">Quantify outcomes — efficiency %, power draw, what worked, what you'd fix on rev 2.</div></div>
+          <div class="whr"><div class="whr-l">What</div><div class="whr-p">Ground support electronics for CubeSat CDH pre-flight testing. Provides a USB-C interface between the flight computer and ground station for checkout and verification.</div></div>
+          <div class="whr"><div class="whr-l">How</div><div class="whr-p">MSPM0 MCU handles USB-C communication and voltage monitoring. Routes CDH flight connector signals to test-accessible pinouts for lab equipment compatibility.</div></div>
+          <div class="whr"><div class="whr-l">Results</div><div class="whr-p">Deployed in pre-flight verification of the CDH subsystem at Texas Spacecraft Laboratory. Design files private — team IP.</div></div>
+        </div>
+      </div>
+
+      <!-- PROJECT 03: Flight Prep Panel -->
+      <div class="proj-card reveal delay-3">
+        <div class="proj-top">
+          <div class="carousel" id="car-3">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <div class="c-private">
+                  <div class="c-lock">🔒</div>
+                  <span class="c-private-lbl">Private Repo</span>
+                  <span class="c-private-sub">Team IP — TSL</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-peek-hint" style="opacity:0; pointer-events:none;"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-head">
+              <div class="proj-num">03</div>
+              <div class="proj-meta">
+                <div class="proj-name">Flight Prep Panel</div>
+                <div class="proj-badges">
+                  <span class="pb pb-priv">Passive</span>
+                  <span class="pb pb-priv">Micro-D</span>
+                  <span class="pb pb-priv">Flight Hardware</span>
+                </div>
+              </div>
+            </div>
+            <div class="proj-status">
+              <div class="sdot s-done"></div>
+              <span class="s-txt">Complete</span>
+              <span class="s-meta">KiCad · Texas Spacecraft Lab</span>
+            </div>
+          </div>
+        </div>
+        <div class="proj-whr">
+          <div class="whr"><div class="whr-l">What</div><div class="whr-p">Passive signal routing board that remaps the CubeSat CDH Micro-D flight connector pinout to the EGSE-compatible pinout for ground testing — no active components.</div></div>
+          <div class="whr"><div class="whr-l">How</div><div class="whr-p">Pure copper routing between two connectors. Eliminates manual per-session wiring errors during pre-flight checkout and removes wear on flight-standard connectors.</div></div>
+          <div class="whr"><div class="whr-l">Results</div><div class="whr-p">Integrated into the CubeSat ground testing stack at Texas Spacecraft Laboratory. Design files private — team IP.</div></div>
         </div>
       </div>
 
@@ -689,7 +627,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <div class="sec-head">
@@ -720,7 +657,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="contact">
   <div class="wrap">
     <div class="foot-top reveal">
@@ -746,11 +682,9 @@
 </footer>
 
 <script>
-  /* ── Curtain ── */
   setTimeout(() => { const c = document.getElementById('curtain'); if (c) c.remove(); }, 600);
 
-  /* ── Progress bar + nav scroll ── */
-  const navbar  = document.getElementById('navbar');
+  const navbar = document.getElementById('navbar');
   const progress = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const s = window.scrollY;
@@ -759,7 +693,6 @@
     navbar.classList.toggle('scrolled', s > 40);
   }, { passive: true });
 
-  /* ── Active nav ── */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   const activeObs = new IntersectionObserver((entries) => {
@@ -771,54 +704,35 @@
   }, { threshold: 0.35 });
   sections.forEach(s => activeObs.observe(s));
 
-  /* ── Bidirectional scroll reveal ── */
   const revObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        e.target.classList.remove('hidden');
-      } else if (e.boundingClientRect.top <= 0) {
-        e.target.classList.remove('visible');
-        e.target.classList.add('hidden');
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); e.target.classList.remove('hidden'); }
+      else if (e.boundingClientRect.top <= 0) { e.target.classList.remove('visible'); e.target.classList.add('hidden'); }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .sec-rule').forEach(el => revObs.observe(el));
 
-  /* ── Section number pulse ── */
   const numObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('lit');
-        setTimeout(() => e.target.classList.remove('lit'), 1200);
-      }
+      if (e.isIntersecting) { e.target.classList.add('lit'); setTimeout(() => e.target.classList.remove('lit'), 1200); }
     });
   }, { threshold: 0.8 });
   document.querySelectorAll('.sec-num').forEach(n => numObs.observe(n));
 
-  /* ── Research stat blur-in ── */
   const statObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        const d = parseInt(e.target.dataset.delay || 0);
-        setTimeout(() => e.target.classList.add('revealed'), d);
-      } else {
-        e.target.classList.remove('revealed');
-      }
+      if (e.isIntersecting) { const d = parseInt(e.target.dataset.delay || 0); setTimeout(() => e.target.classList.add('revealed'), d); }
+      else { e.target.classList.remove('revealed'); }
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.rstat-n').forEach(n => statObs.observe(n));
 
-  /* ── Waveform ── */
   const waveObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      e.target.querySelector('.wave-path').classList.toggle('animate', e.isIntersecting);
-    });
+    entries.forEach(e => { e.target.querySelector('.wave-path').classList.toggle('animate', e.isIntersecting); });
   }, { threshold: 0.4 });
   const wf = document.getElementById('waveform');
   if (wf) waveObs.observe(wf);
 
-  /* ── Peek Carousel ── */
   document.querySelectorAll('.carousel').forEach(car => {
     const track  = car.querySelector('.carousel-track');
     const slides = car.querySelectorAll('.carousel-slide');
@@ -856,7 +770,6 @@
     window.addEventListener('resize', () => go(cur), { passive: true });
   });
 
-  /* ── Carousel keyboard navigation ── */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       document.querySelectorAll('.carousel').forEach(car => {
