@@ -1,11 +1,11 @@
 # stevenmark2.github.io
 
-Personal portfolio site for Steven Wimberly — ECE student at UT Austin.
+Personal portfolio site for Steven Wimberly, ECE student at UT Austin.
 
 
 ## About
 
-Single-page portfolio documenting hardware engineering work — PCB design, embedded systems, and research. Built from scratch in vanilla HTML/CSS/JS, no frameworks.
+Portfolio documenting hardware engineering work — PCB design, embedded systems, and research. Built from scratch in HTML/CSS/JS.
 
 ---
 
